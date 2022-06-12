@@ -58,11 +58,9 @@ class SearchController extends Controller
         }
         
         for($i=0; $i<sizeof($result["response"]["docs"]) ; $i++){
-            echo "=====Result[".($i+1+$start)."]======<br/>";
             foreach($result["response"]["docs"][$i] as $key=>$value){
                 display($key,$value);
             }
-            echo "<br/>";
         }
         
         for($i=0; $i< $numOfPages ; $i++){

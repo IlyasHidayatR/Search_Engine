@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\SearchController1;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,10 @@ Route::get('/', function () {
     return view('searchEngine');
 });
 
-Route::get('/search', [SearchController::class, 'search']);
+// Route::get('/result', function () {
+//     return view('resultEngine');
+// });
+
+Route::get('/search', [SearchController1::class, 'search']);
 // Route::get('/search', [SearchController::class, 'display']);
 

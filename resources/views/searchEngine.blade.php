@@ -77,7 +77,7 @@
                 <!-- get value from option -->
                 <div class="box">
                     <div class="dflex">
-                        <input type="text" name="query" value="*:*" placeholder="Cari Berita...">
+                        <input type="text" id="q" title="Search" name="search" placeholder="Cari Berita...">
                         <button class="search" type="submit">
                             <i class="fa fa-search"></i>
                         </button>
