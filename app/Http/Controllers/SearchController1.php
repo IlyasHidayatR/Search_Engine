@@ -19,23 +19,23 @@ class SearchController1 extends Controller
 
         // contoh setelah dimasukin query ke solr
         // http://192.168.99.100:8983/solr/tugas/select?indent=true&q.op=OR&q=title_txt_en%3A%20Lagu
-
+        //http://192.168.99.100:8983/solr/core_1915101021/select?indent=true&q.op=AND&q=title_txt_id%3A%20Luna%2BMaya%0Abody_txt_id%3A%20Luna%2BMaya
         //fungsi untuk mengubah spasi menjadi %20 
         // agar bisa dimasukkan ke query
         function convertSearchKey($key)
         {
-            $key = (trim($key));
-            $searchKey = '';
-            if (Str::contains($key, ' ')) {
-                $result = explode(' ', $key);
-                foreach ($result as $res) {
-                    $searchKey .= $res . "%20";
+            $key = (trim($key)); //masukkan query yang akan dicari
+            $searchKey = ''; //variabel untuk menyimpan query yang sudah diubah
+            if (Str::contains($key, ' ')) { //jika query mengandung spasi
+                $result = explode(' ', $key); //mengubah query menjadi array
+                foreach ($result as $res) { //mengulang array
+                    $searchKey .= $res . "%2B"; //menambahkan %2B untuk menandakan bahwa query ini merupakan OR
                 }
-                $searchKey = substr($searchKey, 0, -3);
-                return $searchKey;
+                $searchKey = substr($searchKey, 0, -3); //menghapus %20 terakhir
+                return $searchKey; //mengembalikan query yang sudah diubah
             }
 
-            return $key;
+            return $key; //jika query tidak mengandung spasi
         }
 
         function paginate($items, $perPage = 10, $page = 1)
@@ -59,8 +59,8 @@ class SearchController1 extends Controller
         }
 
         // menggabungkan input user dengan url pada apache solr
-        //http://192.168.99.100:8983/solr/tugas/select?indent=true&q.op=OR&q=title_txt_id%3ALagu&rows=800&start=0
-        $url = "http://192.168.99.100:8983/solr/core_1915101021/select?indent=true&q.op=OR&q=title_txt_id%3A" . convertSearchKey($request->search) . "&rows=800&start=0";
+        //http://192.168.99.100:8983/solr/core_1915101021/select?indent=true&q.op=AND&q=title_txt_id%3A%20Luna%2BMaya%0Abody_txt_id%3A%20Luna%2BMaya&rows=800&start=0
+        $url = "http://192.168.99.100:8983/solr/core_1915101021/select?indent=true&q.op=AND&q=title_txt_id%3A%20" . convertSearchKey($request->search) . "%0Abody_txt_id%3A%20". convertSearchKey($request->search) . "&rows=800&start=0";
 
         // get kontennya
         $result = file_get_contents($url);
@@ -71,9 +71,9 @@ class SearchController1 extends Controller
         $jumlahData = $hasil["response"]["numFound"];
         $hasil1 = $hasil['response']['docs'];
         $banyakHalaman = 1;
-        // set hasil yang akan tampil hanya 5
+        // set hasil yang akan tampil hanya 10
         $perPage = 10;
-        // cek jika jumlah ditemukan pada solr > 5
+        // cek jika jumlah ditemukan pada solr > 10
         if ($hasil['response']['numFound'] > 10) {
 
             // hitung banyak halaman yang akan ditampilkan dari data yang ditemukan
