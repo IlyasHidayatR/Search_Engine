@@ -18,7 +18,7 @@
     <nav>
         <div class="left dflex">
             <a href="/">
-                <img src="gambar/pngfind.com-stream-png-2659271.png" alt="logo" class="logo" width="100px" /><span>
+                <img src="gambar/pngfind.com-stream-png-2659271.png" alt="logo" class="logo" width="170px" /><span>
                 </span>
             </a>
         </div>
@@ -37,77 +37,7 @@
             </div>
         </div>
         </form>
-        <div class="right dflex">
-            <div class="item">
-                <i class="fa fa-flag"></i><i class="fa fa-sort-desc"></i>
-            </div>
-            <div class="item">
-                <h5><i class="fa fa-users" aria-hidden="true"></i>Account</h5>
-            </div>
-            <div class="item">
-                <h5><i class="fa fa-moon-o" aria-hidden="true"></i>Atur Mode</h5>
-            </div>
-        </div>
-    </nav>
-    <nav class="subnavugation">
-        <ul class="submenu">
-            <a href="#"></i>
-                <li>News</li>
-            </a>
-            <a href="#"></i>
-                <li>Tren</li>
-            </a>
-            <a href="#">
-                <li>Health</li>
-            </a>
-            <a href="#">
-                <li>Food</li>
-            </a>
-            <a href="#">
-                <li>Edukasi</li>
-            </a>
-            <a href="#">
-                <li>Parapuan</li>
-            </a>
-            <a href="#">
-                <li>Money</li>
-            </a>
-            <a href="#">
-                <li>UMKM</li>
-            </a>
-            <a href="#">
-                <li>Teknologi</li>
-            </a>
-            <a href="#">
-                <li>Life Style</li>
-            </a>
-            <a href="#">
-                <li>Homey</li>
-            </a>
-            <a href="#">
-                <li>Properti</li>
-            </a>
-            <a href="#">
-                <li>Bola</li>
-            </a>
-            <a href="#">
-                <li>Travel</li>
-            </a>
-            <a href="#">
-                <li>Otomotif</li>
-            </a>
-            <a href="#">
-                <li>Sains</li>
-            </a>
-            <a href="#">
-                <li>HYPE</li>
-            </a>
-        </ul>
-        <ul>
-            <a href="#">
-                <li class="li">Kompas.com</li>
-            </a>
-        </ul>
+        
     </nav>
     <br>
     <!-- result json data here with foreach in card -->
